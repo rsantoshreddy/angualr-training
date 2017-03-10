@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Learning</title>
+</head>
+
+<body>
+    <h1>Second pattern : Revealing(Expose) Module Pattern</h1>
+    <script>
+    function main() {
+        function task1() {
+            console.log("task1");
+        }
+
+        function task2() {
+            console.log("task2")
+        }
+
+        //revealing the private varialble outside
+        return {
+            func1: task1,
+            func2: task2
+
+        }
+    }
+
+    work = main();
+
+    work.func1();
+    console.log(work);
+    // work.func2();
+    // work.task1();
+    // work.task2();
+
+    </script>
+</body>
+
+</html>
+

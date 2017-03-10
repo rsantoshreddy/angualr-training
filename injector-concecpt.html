@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Injector</title>
+</head>
+
+<body>
+    <script>
+    funciton myModule(anotherModule) {
+        injector(anotherModule);
+        console.log("myModule");
+    }
+
+    function anotherModule() {
+        console.log("anotherModule");
+        retur {
+            name: "something"
+        };
+    }
+
+    function injector(anotherModule) {
+        this.$rootScope = {};
+        var anotherModule = anotherModule();
+    }
+
+    </script>
+</body>
+
+</html>
+
