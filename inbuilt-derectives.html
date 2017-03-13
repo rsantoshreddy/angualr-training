@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng:app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>my first angular code</title>
+    <style>
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    body {
+        margin-bottom: 200px;
+    }
+    
+    .border {
+        border: 1px solid red;
+    }
+
+    </style>
+</head>
+
+<body>
+    <h1>directives</h1>
+    <div ng:init='user={"id": 1, "name": "Leanne Graham", "username": "Bret", "email": "Sincere@april.biz", "address": {"street": "Kulas Light", "suite": "Apt. 556", "city": "Gwenborough", "zipcode": "92998-3874", "geo": {"lat": "-37.3159", "lng": "81.1496"} }, "phone": "1-770-736-8031 x56442", "website": "hildegard.org", "company": {"name": "Romaguera-Crona", "catchPhrase": "Multi-layered client-server neural-net", "bs": "harness real-time e-markets"} }'>
+        <h2>Name: {{user.name}}</h2>
+        <h2>ID: {{user.id}}</h2>
+        <h2>UserName:{{user.username}}</h2>
+    </div>
+    <div ng:init='numbers=[1,2,3,4,5,6,7,8,9]'>
+        <div ng:repeat="num in numbers">{{num}}</div>
+    </div>
+    <div ng:init="image='img_01.jpg'">
+        <img ng:show="false" ng:src="images/{{image}}" alt="" />
+        <img ng:hide="true" ng:src="images/{{image}}" alt="" />
+        <img ng:if="false" ng:src="images/{{image}}" alt="" />
+    </div>
+    <input ng:model="message"></input>
+    <textarea ng:model="message"></textarea>
+    <div class="border" contenteditable="true" ng:model="message"></div>
+    <div>{{message}}</div>
+    Normalisation
+    <div ng_bind="message"></div>
+    <div ng:bind="message"></div>
+    <div ng-bind="message"></div>
+    <div x-ng-bind="message"></div>
+    <div data-ng-bind="message"></div>
+    <div data-ng:bind="message"></div>
+    <div data:ng:bind="message"></div>
+    <div x-ng:bind="message"></div>
+    <!-- ng-bind: ngBind -->
+    <!-- x-ng-bind: ngBind -->
+    <!-- data-ng-bind: ngBind -->
+    <!-- data:ng:bind: ngBind -->
+    <!-- userInformation -->
+    <!-- ==================== -->
+    <script src="scripts/angular.1.2.min.js"></script>
+    <script src="scripts/directives.js"></script>
+</body>
+
+</html>
+

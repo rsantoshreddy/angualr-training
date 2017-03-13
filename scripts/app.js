@@ -3,6 +3,11 @@ var app = angular.module("demoapp", []);
 app.controller("firstCtrl", first);
 app.controller("secondCtrl", second);
 app.controller("thirdCrtl", third);
+app.controller("fourth", ["$scope", fourth]);
+
+function fourth($scope) {
+    $scope.name = "fourth";
+}
 
 function third($scope) {
     $scope.message = "hellow angular! from third Controller";
