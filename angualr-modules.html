@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular</title>
+</head>
+
+<body>
+    <div ng:controller="mainCtrl" class="main">
+        {{name}}
+    </div>
+    <script src="scripts/angular.1.4.8.min.js"></script>
+    <script>
+    var app = angular.module("app", ["myfunction"]);
+    app.controller("mainCtrl", function($scope) {
+        $scope.name = "santosh";
+    });
+
+    var app = {
+        function controller(scope) {
+            this.name = scope.name;
+        }
+        controllers = [];
+        controllers.push(controller);
+        return {
+            controllers: controllers
+        }
+    }
+    app()[0].name;
+
+    </script>
+</body>
+
+</html>
+

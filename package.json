@@ -1,0 +1,28 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "description": "angualar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsantoshreddy/angualr-training.git"
+  },
+  "keywords": [
+    "angualr"
+  ],
+  "author": "santosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rsantoshreddy/angualr-training/issues"
+  },
+  "homepage": "https://github.com/rsantoshreddy/angualr-training#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

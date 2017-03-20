@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="review">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>Review Angular</h1>
+    <div ng-controller="mainCtrl" class="container">
+        <table class="table table-borded">
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Rev. Email</td>
+                <td>Phone</td>
+                <td>City</td>
+            </tr>
+            <tr ng-repeat="user in users | orderBy: '+name' | limitTo: +5">
+                <td>{{user.id|number:3}}</td>
+                <td>{{user.name|uppercase}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.address.city | lowercase}}</td>
+            </tr>
+        </table>
+        <div ng-bind="number"></div>
+        <div>{{number2}}</div>
+        <div>Number 3: {{number3}}</div>
+    </div>
+    <script src="scripts/angular.1.2.min.js"></script>
+    <script>
+    var app = angular.module("review", []);
+
+    app.controller("mainCtrl", function($scope, userData, getRandomNumber) {
+        var source = "https://jsonplaceholder.typicode.com/users";
+        userData.getUsers(source, successHandler, errorHandler);
+
+        function successHandler(res) {
+            $scope.users = res.data;
+        }
+
+        function errorHandler(status) {
+            console.log("Error");
+            console.log(status);
+        }
+        console.log(getRandomNumber);
+        $scope.number = getRandomNumber.randomnumber;
+        $scope.number2 = getRandomNumber.getnumber();
+        $scope.number3 = getRandomNumber.secretNumebr;
+
+    });
+
+    app.service("getRandomNumber", function() {
+        this.randomnumber = Math.floor(Math.random() * (10 - 0));
+        this.secretNumebr = 20;
+        this.getnumber = function() {
+                return this.randomnumber;
+            }
+            // return this;
+
+        return {
+            randomnumber: this.randomnumber,
+            getnumber: this.getnumber,
+            secretNumebr: this.secretNumebr
+        };
+
+
+
+        // function getnumber() {
+        //     return randomnumber
+        // }
+
+        // return {
+        //     getnumber: getnumber
+        // }
+
+
+    })
+
+    </script>
+    <script src="scripts/services/users.js"></script>
+</body>
+
+</html>
+

@@ -9,30 +9,63 @@
 <body>
     <h1>Second pattern : Revealing(Expose) Module Pattern</h1>
     <script>
+    // function main() {
+    //     function task1() {
+    //         console.log("task1");
+    //     }
+
+    //     function task2() {
+    //         console.log("task2")
+    //     }
+
+    //     //revealing the private varialble outside
+    //     return {
+    //         func1: task1,
+    //         func2: task2
+
+    //     }
+    // }
+
+    // work = main();
+
+    // work.func1();
+    // console.log(work);
+    // // work.func2();
+    // // work.task1();
+    // // work.task2();
     function main() {
-        function task1() {
-            console.log("task1");
+        function solution() {
+            console.log("hi");
         }
 
-        function task2() {
-            console.log("task2")
-        }
-
-        //revealing the private varialble outside
-        return {
-            func1: task1,
-            func2: task2
-
-        }
+        return solution;
     }
+    var app = main();
+    app();
 
-    work = main();
+    function person() {
+        this.name = "Santosh";
+        this.age = 28;
+    }
+    person.prototype.walk = function() {
+        console.log("this is parent function");
+    }
+    var pavan = new person();
+    pavan.walk = function() {
+        console.log("This is pavan")
+    };
+    console.log(person);
+    console.log(pavan)
+        // (function() {
+        //     function main(solution) {
+        //         solution();
+        //     }
 
-    work.func1();
-    console.log(work);
-    // work.func2();
-    // work.task1();
-    // work.task2();
+    //     function solution() {
+    //         console.log("hi");
+    //     }
+    //     main(solution);
+    // })();
 
     </script>
 </body>

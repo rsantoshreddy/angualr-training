@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="review">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>Review Angular</h1>
+    <div ng-controller="mainCtrl" class="container">
+        <table class="table table-borded">
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Rev. Email</td>
+                <td>Phone</td>
+                <td>City</td>
+            </tr>
+            <tr ng-repeat="user in users | orderBy: '+name' | limitTo: +5">
+                <td>{{user.id|number:3}}</td>
+                <td>{{user.name|uppercase}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.email |reveresed:'@'}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.address.city | lowercase}}</td>
+            </tr>
+        </table>
+    </div>
+    <script src="scripts/angular.1.2.min.js"></script>
+    <script src="scripts/data/users.js"></script>
+    <script>
+    var app = angular.module("review", []);
+
+    app.controller("mainCtrl", function($scope) {
+        $scope.users = users;
+    });
+    app.filter("reveresed", function() {
+        return function(input, arg1, arg2) {
+            var pos = input.indexOf(arg1);
+            return input.substring(0, pos);
+        }
+    })
+
+    </script>
+</body>
+
+</html>
+

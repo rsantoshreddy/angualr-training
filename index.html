@@ -21,6 +21,28 @@
     yourfunction(myfunction);
     //JavaScript functions: First class object
 
+    var person = function(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    person.prototype.talk = function() {
+        console.log("I'm able to talk...Blala");
+    }
+
+    var parent = new person("Parent", 23);
+
+    var pavan = new person("Pavan", 23);
+    pavan.talk = function() {
+        console.log("I'm British now");
+    }
+    var ikkurti = new person("ikkurti", 44);
+    ikkurti.talk = function() {
+        console.log("I talk Japanese");
+    }
+
+    console.log(pavan)
+    console.log(ikkurti)
+
     </script>
 </body>
 
